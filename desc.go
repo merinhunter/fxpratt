@@ -45,31 +45,31 @@ func (p *Parser) match(tT int) (tok fxlex.Token, err error, isMatch bool) {
 var precTab = map[rune]int{
 	')':          1,
 	'|':          10,
-	'&':          10,
-	'!':          10,
-	'^':          10,
-	'<':          10,
-	'>':          10,
-	fxlex.TokGTE: 10,
-	fxlex.TokLTE: 10,
-	'+':          20,
-	'-':          20,
-	'*':          30,
-	'/':          30,
-	'%':          30,
-	fxlex.TokPow: 40,
-	'(':          50,
+	'&':          20,
+	'^':          30,
+	'<':          40,
+	'>':          40,
+	fxlex.TokGTE: 40,
+	fxlex.TokLTE: 40,
+	'+':          50,
+	'-':          50,
+	'*':          60,
+	'/':          60,
+	'%':          60,
+	fxlex.TokPow: 70,
+	'!':          70,
+	'(':          80,
 }
 
 var leftTab = map[rune]bool{
 	fxlex.TokPow: true,
 }
+
 var unaryTab = map[rune]bool{
 	'+': true,
 	'-': true,
 	'(': true,
 	'!': true,
-	'^': true,
 }
 
 //no left context, null-denotation: nud
